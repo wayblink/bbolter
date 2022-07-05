@@ -24,3 +24,7 @@ _testmain.go
 *.prof
 
 .DS_STORE
+.gitignore
+.idea
+bolter
+snapshot.db

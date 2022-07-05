@@ -7,7 +7,7 @@ import (
 	"os"
 	"strings"
 
-	kval "github.com/kval-access-language/kval-boltdb"
+	"github.com/hasit/bolter/kvalbolt"
 	"github.com/olekukonko/tablewriter"
 	"github.com/urfave/cli"
 )
@@ -67,7 +67,7 @@ COPYRIGHT:
 			return err
 		}
 		i.initDB(file)
-		defer kval.Disconnect(i.kb)
+		defer kvalbolt.Disconnect(i.kb)
 
 		i.readInput()
 
@@ -108,7 +108,7 @@ type formatter interface {
 }
 
 type impl struct {
-	kb     kval.Kvalboltdb
+	kb     kvalbolt.Kvalboltdb
 	fmt    formatter
 	bucket string
 	loc    string // navigation, what is our requested location in the store?
@@ -129,7 +129,7 @@ func (i *impl) initDB(file string) {
 	var err error
 	// Connect to KVAL using KVAL default mechanism
 	// Can also use regular open plus perms, and kval.Attach()
-	i.kb, err = kval.Connect(file)
+	i.kb, err = kvalbolt.Connect(file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -168,7 +168,7 @@ func (i *impl) listBucketItems(bucket string, goBack bool) {
 	getQuery := i.updateLoc(bucket, goBack)
 	if getQuery != "" {
 		fmt.Fprintf(os.Stdout, "Query: "+getQuery+"\n\n")
-		res, err := kval.Query(i.kb, "GET "+getQuery)
+		res, err := kvalbolt.Query(i.kb, "GET "+getQuery)
 		if err != nil {
 			if err.Error() != "Cannot GOTO bucket, bucket not found" {
 				log.Fatal(err)
@@ -188,7 +188,7 @@ func (i *impl) listBucketItems(bucket string, goBack bool) {
 		}
 
 		for k, v := range res.Result {
-			if v == kval.Nestedbucket {
+			if v == kvalbolt.Nestedbucket {
 				k = k + "*"
 				v = ""
 			}
@@ -208,7 +208,7 @@ func (i *impl) listBuckets() {
 
 	buckets := []bucket{}
 
-	res, err := kval.Query(i.kb, "GET _") // KVAL: "GET _" will return ROOT
+	res, err := kvalbolt.Query(i.kb, "GET _") // KVAL: "GET _" will return ROOT
 	if err != nil {
 		log.Fatal(err)
 	}
