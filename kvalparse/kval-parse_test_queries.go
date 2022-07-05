@@ -1,6 +1,6 @@
 package kvalparse
 
-import "github.com/hasit/bolter/kvalscanner"
+import "github.com/wayblink/bbolter/kvalscanner"
 
 /*
 type KQUERY struct {

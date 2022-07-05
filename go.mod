@@ -1,4 +1,4 @@
-module github.com/hasit/bolter
+module github.com/wayblink/bbolter
 
 go 1.13
 

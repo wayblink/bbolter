@@ -2,9 +2,9 @@ package kvalbolt
 
 import (
 	b64 "encoding/base64"
-	"github.com/hasit/bolter/kvalparse"
-	"github.com/hasit/bolter/kvalscanner"
 	"github.com/pkg/errors"
+	"github.com/wayblink/bbolter/kvalparse"
+	"github.com/wayblink/bbolter/kvalscanner"
 	bolt "go.etcd.io/bbolt"
 	"time"
 )

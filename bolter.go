@@ -7,9 +7,9 @@ import (
 	"os"
 	"strings"
 
-	"github.com/hasit/bolter/kvalbolt"
 	"github.com/olekukonko/tablewriter"
 	"github.com/urfave/cli"
+	"github.com/wayblink/bbolter/kvalbolt"
 )
 
 // Terminal lines...

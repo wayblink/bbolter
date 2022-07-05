@@ -4,8 +4,8 @@ package kvalparse
 //https://github.com/fatih/hcl/blob/8f83adfc08e6d7162ef328a06cf00ee5fb865f30/scanner/scanner.go
 
 import (
-	"github.com/hasit/bolter/kvalscanner"
 	"github.com/pkg/errors"
+	"github.com/wayblink/bbolter/kvalscanner"
 	"regexp"
 	"strconv"
 	"strings"

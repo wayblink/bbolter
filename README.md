@@ -1,4 +1,6 @@
-# bolter
+# bbolter
+
+Based on [bolter](https://github.com/hasit/bolter). Refactor for bblot.
 
 View BoltDB file in your terminal
 

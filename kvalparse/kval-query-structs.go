@@ -1,6 +1,6 @@
 package kvalparse
 
-import "github.com/hasit/bolter/kvalscanner"
+import "github.com/wayblink/bbolter/kvalscanner"
 
 // KQuery struct used to breakdown a query string in a way that can
 // be utilised by the calling code more easily.

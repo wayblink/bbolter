@@ -1,8 +1,8 @@
 package kvalbolt
 
 import (
-	"github.com/hasit/bolter/kvalscanner"
 	"github.com/pkg/errors"
+	"github.com/wayblink/bbolter/kvalscanner"
 	bolt "go.etcd.io/bbolt"
 )
 

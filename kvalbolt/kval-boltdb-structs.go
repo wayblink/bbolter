@@ -1,7 +1,7 @@
 package kvalbolt
 
 import (
-	"github.com/hasit/bolter/kvalparse"
+	"github.com/wayblink/bbolter/kvalparse"
 	bolt "go.etcd.io/bbolt"
 	"strings"
 )
